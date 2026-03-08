@@ -114,7 +114,7 @@ Database (MongoDB Atlas)
 
 
 ---
-
+```
 # 📂 Project Structure
 
 
@@ -182,7 +182,7 @@ ParkLynk
 ├── README.md
 └── .gitignore
 
-
+```
 ---
 
 # ⚙️ Installation
