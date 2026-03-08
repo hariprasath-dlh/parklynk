@@ -265,3 +265,11 @@ Frontend → Vercel
 Backend → Render  
 Database → MongoDB Atlas
 
+
+### ⚠️ Note
+
+The backend is hosted on Render's free tier. The server may enter sleep mode after inactivity, so the first request may take a few seconds to respond.
+
+### 🔄 Continuous Deployment
+
+The frontend is automatically redeployed by Vercel whenever new changes are pushed to the `main` branch of the GitHub repository.
