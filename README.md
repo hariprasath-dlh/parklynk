@@ -247,3 +247,21 @@ Hariprasath
 Project: **ParkLynk – Smart Parking Marketplace**
 
 ---
+
+## 🚀 Deployment
+
+ParkLynk is successfully deployed and accessible online.
+
+### 🌐 Live Application
+Frontend (Vercel):  
+https://parklynk-git-main-23ad047-2318s-projects.vercel.app
+
+Backend API (Render):  
+https://parklynk-backend.onrender.com
+
+### 🧱 Deployment Architecture
+
+Frontend → Vercel  
+Backend → Render  
+Database → MongoDB Atlas
+
