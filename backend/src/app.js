@@ -15,6 +15,7 @@ const app = express();
 const allowedOrigins = [
     'http://localhost:5173',
     'https://parklynk.vercel.app',
+    'https://parklynk-git-main-23ad047-2318s-projects.vercel.app',
     process.env.FRONTEND_URL,
 ].filter(Boolean);
 
@@ -27,6 +28,7 @@ app.use(
 
             return callback(new Error('Not allowed by CORS'));
         },
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
         credentials: true,
     })
 );

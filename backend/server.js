@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 const socketAllowedOrigins = [
     'http://localhost:5173',
     'https://parklynk.vercel.app',
+    'https://parklynk-git-main-23ad047-2318s-projects.vercel.app',
     process.env.FRONTEND_URL,
 ].filter(Boolean);
 
