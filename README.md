@@ -100,3 +100,150 @@ This creates a smart and efficient parking ecosystem.
 ---
 
 # 🧱 System Architecture
+
+User Browser
+│
+▼
+Frontend (React + Vite)
+│
+▼
+Backend API (Node.js + Express)
+│
+▼
+Database (MongoDB Atlas)
+
+
+---
+
+# 📂 Project Structure
+
+
+ParkLynk
+│
+├── backend
+│ │
+│ ├── config
+│ │ └── db.js
+│ │
+│ ├── controllers
+│ │ ├── authController.js
+│ │ ├── slotController.js
+│ │ └── notificationController.js
+│ │
+│ ├── middleware
+│ │ └── authMiddleware.js
+│ │
+│ ├── models
+│ │ ├── User.js
+│ │ ├── ParkingSlot.js
+│ │ ├── Booking.js
+│ │ └── Notification.js
+│ │
+│ ├── routes
+│ │ ├── authRoutes.js
+│ │ ├── slotRoutes.js
+│ │ └── bookingRoutes.js
+│ │
+│ ├── utils
+│ │ └── licenseVerification.js
+│ │
+│ ├── server.js
+│ └── package.json
+│
+│
+├── frontend
+│ │
+│ ├── public
+│ │ ├── parklynk-logo.png
+│ │ └── parklynk-circle-tab-logo.png
+│ │
+│ ├── src
+│ │ ├── components
+│ │ │ ├── Navbar.tsx
+│ │ │ ├── Sidebar.tsx
+│ │ │ └── NotificationPanel.tsx
+│ │ │
+│ │ ├── pages
+│ │ │ ├── Home.tsx
+│ │ │ ├── Login.tsx
+│ │ │ ├── Signup.tsx
+│ │ │ ├── Dashboard.tsx
+│ │ │ └── Profile.tsx
+│ │ │
+│ │ ├── services
+│ │ │ └── api.ts
+│ │ │
+│ │ ├── App.tsx
+│ │ └── main.tsx
+│ │
+│ └── package.json
+│
+│
+├── README.md
+└── .gitignore
+
+
+---
+
+# ⚙️ Installation
+
+Clone the repository:
+
+
+git clone https://github.com/YOUR_USERNAME/ParkLynk.git
+
+
+Navigate to project directory:
+
+
+cd ParkLynk
+
+
+---
+
+# ▶ Backend Setup
+
+
+cd backend
+npm install
+npm run dev
+
+
+---
+
+# ▶ Frontend Setup
+
+Open another terminal:
+
+
+cd frontend
+npm install
+npm run dev
+
+
+The application will run at:
+
+
+http://localhost:5173
+
+
+---
+
+# 🔮 Future Improvements
+
+- Live GPS parking search
+- Real-time parking availability
+- Payment gateway integration
+- Mobile application
+- AI-based document verification
+- Smart parking recommendations
+
+---
+
+# 👨‍💻 Author
+
+Hariprasath
+
+Project: **ParkLynk – Smart Parking Marketplace**
+
+---
