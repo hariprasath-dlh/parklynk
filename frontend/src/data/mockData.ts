@@ -1,0 +1,211 @@
+import { User, ParkingSlot, Booking, Notification, MockEmail, Settlement } from '@/types';
+
+export const mockUsers: User[] = [
+  {
+    id: 'u1',
+    name: 'Arjun Mehta',
+    email: 'vehicle@test.com',
+    phone: '+91 98765 43210',
+    role: 'vehicle_user',
+    username: 'arjun_m',
+    gender: 'male',
+    verificationStatus: 'verified',
+    licenseImage: '/placeholder.svg',
+    createdAt: '2025-01-15T10:00:00Z',
+  },
+  {
+    id: 'u2',
+    name: 'Priya Sharma',
+    email: 'owner@test.com',
+    phone: '+91 98765 43211',
+    role: 'house_owner',
+    username: 'priya_s',
+    gender: 'female',
+    verificationStatus: 'verified',
+    createdAt: '2025-01-10T10:00:00Z',
+  },
+];
+
+export const mockSlots: ParkingSlot[] = [
+  {
+    id: 's1', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Koramangala Safe Parking', images: ['/placeholder.svg'],
+    state: 'Karnataka', district: 'Bangalore Urban', city: 'Bangalore',
+    address: '123, 4th Cross, Koramangala', totalSpaces: 5, availableSpaces: 3,
+    vehicleTypes: ['car', 'bike'], pricePerHour: 40, isAvailable: true, rating: 4.5,
+    createdAt: '2025-02-01T10:00:00Z',
+  },
+  {
+    id: 's2', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Indiranagar Premium Spot', images: ['/placeholder.svg'],
+    state: 'Karnataka', district: 'Bangalore Urban', city: 'Bangalore',
+    address: '45, 12th Main, Indiranagar', totalSpaces: 3, availableSpaces: 1,
+    vehicleTypes: ['car', 'suv'], pricePerHour: 60, isAvailable: true, rating: 4.8,
+    createdAt: '2025-02-05T10:00:00Z',
+  },
+  {
+    id: 's3', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Whitefield Tech Park Parking', images: ['/placeholder.svg'],
+    state: 'Karnataka', district: 'Bangalore Urban', city: 'Whitefield',
+    address: '78, ITPL Road, Whitefield', totalSpaces: 10, availableSpaces: 6,
+    vehicleTypes: ['car', 'bike', 'suv'], pricePerHour: 30, isAvailable: true, rating: 4.2,
+    createdAt: '2025-02-10T10:00:00Z',
+  },
+  {
+    id: 's4', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Andheri West Covered Parking', images: ['/placeholder.svg'],
+    state: 'Maharashtra', district: 'Mumbai', city: 'Mumbai',
+    address: '12, Link Road, Andheri West', totalSpaces: 8, availableSpaces: 4,
+    vehicleTypes: ['car', 'bike'], pricePerHour: 50, isAvailable: true, rating: 4.3,
+    createdAt: '2025-02-12T10:00:00Z',
+  },
+  {
+    id: 's5', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Bandra Secure Lot', images: ['/placeholder.svg'],
+    state: 'Maharashtra', district: 'Mumbai', city: 'Mumbai',
+    address: '90, Hill Road, Bandra', totalSpaces: 4, availableSpaces: 0,
+    vehicleTypes: ['car'], pricePerHour: 80, isAvailable: false, rating: 4.7,
+    createdAt: '2025-02-15T10:00:00Z',
+  },
+  {
+    id: 's6', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Hinjewadi Phase 1 Parking', images: ['/placeholder.svg'],
+    state: 'Maharashtra', district: 'Pune', city: 'Pune',
+    address: '56, Rajiv Gandhi Infotech Park', totalSpaces: 15, availableSpaces: 10,
+    vehicleTypes: ['car', 'bike', 'suv', 'truck'], pricePerHour: 25, isAvailable: true, rating: 4.0,
+    createdAt: '2025-02-18T10:00:00Z',
+  },
+  {
+    id: 's7', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'T Nagar Street Parking', images: ['/placeholder.svg'],
+    state: 'Tamil Nadu', district: 'Chennai', city: 'Chennai',
+    address: '34, Usman Road, T Nagar', totalSpaces: 6, availableSpaces: 2,
+    vehicleTypes: ['car', 'bike'], pricePerHour: 35, isAvailable: true, rating: 3.9,
+    createdAt: '2025-02-20T10:00:00Z',
+  },
+  {
+    id: 's8', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Connaught Place Lot', images: ['/placeholder.svg'],
+    state: 'Delhi', district: 'New Delhi', city: 'New Delhi',
+    address: 'Block A, CP', totalSpaces: 12, availableSpaces: 5,
+    vehicleTypes: ['car', 'bike', 'suv'], pricePerHour: 70, isAvailable: true, rating: 4.6,
+    createdAt: '2025-02-22T10:00:00Z',
+  },
+  {
+    id: 's9', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Dwarka Sector 21 Parking', images: ['/placeholder.svg'],
+    state: 'Delhi', district: 'New Delhi', city: 'Dwarka',
+    address: 'Sector 21, Dwarka', totalSpaces: 20, availableSpaces: 15,
+    vehicleTypes: ['car', 'bike', 'suv', 'truck'], pricePerHour: 20, isAvailable: true, rating: 4.1,
+    createdAt: '2025-02-25T10:00:00Z',
+  },
+  {
+    id: 's10', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Hauz Khas Village Spot', images: ['/placeholder.svg'],
+    state: 'Delhi', district: 'South Delhi', city: 'Hauz Khas',
+    address: 'Near Deer Park, Hauz Khas', totalSpaces: 3, availableSpaces: 1,
+    vehicleTypes: ['car'], pricePerHour: 90, isAvailable: true, rating: 4.9,
+    createdAt: '2025-02-28T10:00:00Z',
+  },
+  {
+    id: 's11', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Mysore Palace Road Parking', images: ['/placeholder.svg'],
+    state: 'Karnataka', district: 'Mysore', city: 'Mysore',
+    address: '12, Palace Road, Mysore', totalSpaces: 7, availableSpaces: 5,
+    vehicleTypes: ['car', 'bike'], pricePerHour: 20, isAvailable: true, rating: 4.0,
+    createdAt: '2025-03-01T10:00:00Z',
+  },
+  {
+    id: 's12', ownerId: 'u2', ownerName: 'Priya Sharma', ownerPhone: '+91 98765 43211',
+    title: 'Coimbatore RS Puram Lot', images: ['/placeholder.svg'],
+    state: 'Tamil Nadu', district: 'Coimbatore', city: 'Coimbatore',
+    address: 'RS Puram, Coimbatore', totalSpaces: 9, availableSpaces: 7,
+    vehicleTypes: ['car', 'bike', 'suv'], pricePerHour: 22, isAvailable: true, rating: 4.2,
+    createdAt: '2025-03-01T10:00:00Z',
+  },
+];
+
+export const mockBookings: Booking[] = [
+  {
+    id: 'b1', slotId: 's1', slotTitle: 'Koramangala Safe Parking', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-03-01T09:00:00Z', endTime: '2025-03-01T12:00:00Z',
+    totalAmount: 120, platformFee: 18, status: 'completed', createdAt: '2025-02-28T20:00:00Z',
+  },
+  {
+    id: 'b2', slotId: 's2', slotTitle: 'Indiranagar Premium Spot', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-03-02T14:00:00Z', endTime: '2025-03-02T18:00:00Z',
+    totalAmount: 240, platformFee: 36, status: 'active', createdAt: '2025-03-02T10:00:00Z',
+  },
+  {
+    id: 'b3', slotId: 's4', slotTitle: 'Andheri West Covered Parking', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-03-05T10:00:00Z', endTime: '2025-03-05T13:00:00Z',
+    totalAmount: 150, platformFee: 22.5, status: 'pending', createdAt: '2025-03-04T18:00:00Z',
+  },
+  {
+    id: 'b4', slotId: 's8', slotTitle: 'Connaught Place Lot', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-03-03T08:00:00Z', endTime: '2025-03-03T10:00:00Z',
+    totalAmount: 140, platformFee: 21, status: 'approved', createdAt: '2025-03-02T22:00:00Z',
+  },
+  {
+    id: 'b5', slotId: 's3', slotTitle: 'Whitefield Tech Park Parking', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-CD-5678', vehicleType: 'bike',
+    startTime: '2025-02-25T09:00:00Z', endTime: '2025-02-25T11:00:00Z',
+    totalAmount: 60, platformFee: 9, status: 'completed', createdAt: '2025-02-24T20:00:00Z',
+  },
+  {
+    id: 'b6', slotId: 's6', slotTitle: 'Hinjewadi Phase 1 Parking', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-02-20T07:00:00Z', endTime: '2025-02-20T19:00:00Z',
+    totalAmount: 300, platformFee: 45, status: 'overstayed',
+    gracePeriodEnd: '2025-02-20T19:30:00Z', createdAt: '2025-02-19T22:00:00Z',
+  },
+  {
+    id: 'b7', slotId: 's7', slotTitle: 'T Nagar Street Parking', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-02-18T10:00:00Z', endTime: '2025-02-18T14:00:00Z',
+    totalAmount: 140, platformFee: 21, status: 'rejected', createdAt: '2025-02-17T15:00:00Z',
+  },
+  {
+    id: 'b8', slotId: 's9', slotTitle: 'Dwarka Sector 21 Parking', userId: 'u1', userName: 'Arjun Mehta',
+    vehicleNumber: 'KA-01-AB-1234', vehicleType: 'car',
+    startTime: '2025-03-10T06:00:00Z', endTime: '2025-03-10T18:00:00Z',
+    totalAmount: 240, platformFee: 36, status: 'pending', createdAt: '2025-03-09T20:00:00Z',
+  },
+];
+
+export const mockNotifications: Notification[] = [
+  { id: 'n1', userId: 'u1', category: 'booking', title: 'Booking Approved', message: 'Your booking at Connaught Place Lot has been approved.', isRead: false, createdAt: '2025-03-02T22:30:00Z' },
+  { id: 'n2', userId: 'u1', category: 'booking', title: 'Booking Completed', message: 'Your parking at Koramangala Safe Parking is now completed.', isRead: true, createdAt: '2025-03-01T12:05:00Z' },
+  { id: 'n3', userId: 'u1', category: 'reminder', title: 'Parking Ending Soon', message: 'Your session at Indiranagar Premium Spot ends in 30 minutes.', isRead: false, createdAt: '2025-03-02T17:30:00Z' },
+  { id: 'n4', userId: 'u1', category: 'payment', title: 'Payment Received', message: '₹120 payment confirmed for Koramangala booking.', isRead: true, createdAt: '2025-03-01T12:00:00Z' },
+  { id: 'n5', userId: 'u1', category: 'overstay', title: 'Overstay Warning!', message: 'You have exceeded parking time at Hinjewadi. Extra charges apply.', isRead: false, createdAt: '2025-02-20T19:35:00Z' },
+  { id: 'n6', userId: 'u1', category: 'booking', title: 'New Booking Request', message: 'Your booking at Andheri West is pending approval.', isRead: false, createdAt: '2025-03-04T18:05:00Z' },
+  { id: 'n7', userId: 'u1', category: 'system', title: 'Welcome to ParkLynk!', message: 'Your license has been verified. Start searching for parking spots!', isRead: true, createdAt: '2025-01-15T10:05:00Z' },
+  { id: 'n8', userId: 'u1', category: 'booking', title: 'Booking Rejected', message: 'Your booking at T Nagar was rejected by the owner.', isRead: true, createdAt: '2025-02-17T15:30:00Z' },
+  { id: 'n9', userId: 'u1', category: 'reminder', title: 'Rate Your Experience', message: 'How was your parking at Whitefield Tech Park?', isRead: false, createdAt: '2025-02-25T11:10:00Z' },
+  { id: 'n10', userId: 'u1', category: 'payment', title: 'Overstay Charge', message: '₹75 overstay fee charged for Hinjewadi booking.', isRead: false, createdAt: '2025-02-20T20:00:00Z' },
+  { id: 'n11', userId: 'u2', category: 'booking', title: 'New Booking Request', message: 'Arjun Mehta wants to book Koramangala Safe Parking.', isRead: false, createdAt: '2025-02-28T20:05:00Z' },
+  { id: 'n12', userId: 'u2', category: 'payment', title: 'Settlement Due', message: 'You have ₹850 in pending settlements.', isRead: false, createdAt: '2025-03-01T08:00:00Z' },
+  { id: 'n13', userId: 'u2', category: 'booking', title: 'Booking Request', message: 'Arjun Mehta requests parking at Andheri West.', isRead: false, createdAt: '2025-03-04T18:05:00Z' },
+  { id: 'n14', userId: 'u2', category: 'system', title: 'Slot Created', message: 'Hinjewadi Phase 1 Parking is now live!', isRead: true, createdAt: '2025-02-18T10:05:00Z' },
+  { id: 'n15', userId: 'u2', category: 'overstay', title: 'Overstay Alert', message: 'A vehicle is overstaying at Hinjewadi Phase 1.', isRead: false, createdAt: '2025-02-20T19:35:00Z' },
+];
+
+export const mockEmails: MockEmail[] = [
+  { id: 'e1', userId: 'u1', subject: 'License Verified — Welcome to ParkLynk!', from: 'noreply@parklynk.com', preview: 'Your driving license has been successfully verified...', body: 'Hi Arjun,\n\nYour driving license has been successfully verified. You can now search for and book parking spots across India.\n\nHappy parking!\n— Team ParkLynk', isRead: true, createdAt: '2025-01-15T10:05:00Z' },
+  { id: 'e2', userId: 'u1', subject: 'Booking Confirmed — Koramangala Safe Parking', from: 'bookings@parklynk.com', preview: 'Your booking has been approved by the owner...', body: 'Hi Arjun,\n\nYour booking at Koramangala Safe Parking has been confirmed.\n\nDate: March 1, 2025\nTime: 9:00 AM - 12:00 PM\nVehicle: KA-01-AB-1234\nAmount: ₹120\n\nPlease arrive on time.\n\n— Team ParkLynk', isRead: true, createdAt: '2025-02-28T20:30:00Z' },
+  { id: 'e3', userId: 'u1', subject: 'Payment Receipt — ₹120', from: 'payments@parklynk.com', preview: 'Payment of ₹120 has been processed...', body: 'Hi Arjun,\n\nPayment of ₹120 has been processed for your Koramangala booking.\n\nTransaction ID: TXN-2025-001\n\n— Team ParkLynk', isRead: true, createdAt: '2025-03-01T12:00:00Z' },
+  { id: 'e4', userId: 'u1', subject: '⚠️ Overstay Notice — Hinjewadi Phase 1', from: 'alerts@parklynk.com', preview: 'You have exceeded your parking time...', body: 'Hi Arjun,\n\nYou have exceeded your scheduled parking time at Hinjewadi Phase 1 Parking. An overstay charge of ₹75 has been applied.\n\nPlease vacate the space as soon as possible.\n\n— Team ParkLynk', isRead: false, createdAt: '2025-02-20T19:35:00Z' },
+  { id: 'e5', userId: 'u1', subject: 'Booking Rejected — T Nagar Street Parking', from: 'bookings@parklynk.com', preview: 'Unfortunately, the owner has declined...', body: 'Hi Arjun,\n\nUnfortunately, the owner has declined your booking request at T Nagar Street Parking.\n\nReason: Slot unavailable during requested time.\n\nPlease try another slot.\n\n— Team ParkLynk', isRead: true, createdAt: '2025-02-17T15:30:00Z' },
+  { id: 'e6', userId: 'u2', subject: 'New Booking Request — Arjun Mehta', from: 'bookings@parklynk.com', preview: 'A new booking request has arrived...', body: 'Hi Priya,\n\nArjun Mehta has requested to book Koramangala Safe Parking.\n\nDate: March 1, 2025\nTime: 9:00 AM - 12:00 PM\n\nPlease approve or reject.\n\n— Team ParkLynk', isRead: false, createdAt: '2025-02-28T20:05:00Z' },
+];
+
+export const mockSettlements: Settlement[] = [
+  { id: 'st1', ownerId: 'u2', amount: 450, status: 'paid', paidAt: '2025-02-15T10:00:00Z', createdAt: '2025-02-10T10:00:00Z' },
+  { id: 'st2', ownerId: 'u2', amount: 320, status: 'paid', paidAt: '2025-02-28T10:00:00Z', createdAt: '2025-02-25T10:00:00Z' },
+  { id: 'st3', ownerId: 'u2', amount: 850, status: 'pending', createdAt: '2025-03-01T10:00:00Z' },
+];
