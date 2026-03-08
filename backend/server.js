@@ -10,13 +10,19 @@ const connectDB = require('./src/config/db');
 const { setSocketServer } = require('./src/utils/socket');
 
 const PORT = process.env.PORT || 5000;
+const socketAllowedOrigins = [
+    'http://localhost:5173',
+    'https://parklynk.vercel.app',
+    process.env.FRONTEND_URL,
+].filter(Boolean);
 
 connectDB().then(() => {
     const server = http.createServer(app);
     const io = new Server(server, {
         cors: {
-            origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+            origin: socketAllowedOrigins,
             methods: ['GET', 'POST'],
+            credentials: true,
         },
     });
 
